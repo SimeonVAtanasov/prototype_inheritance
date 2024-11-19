@@ -38,7 +38,7 @@
 
 //  freeze & seal
 
-let dog = { name: "Sharo", age: 4 };
+// let dog = { name: "Sharo", age: 4 };
 // Object.freeze(dog);
 // dog.age = 10; // Error in strict mode
 // dog.gender = "male"; // Error in strict mode
@@ -98,3 +98,68 @@ let dog = { name: "Sharo", age: 4 };
 // const rec = new Rectangle(2, 5);
 // console.log("🚀 ~ rec:", rec);
 // console.log("🚀 ~ Rectangle.prototype:", rec.area()); // => 10
+
+// const dog = {
+//   name: "Sharo",
+//   printInfo: function () {
+//     console.log(`My name is ${this.name}`);
+//   },
+// };
+// const myDog = Object.create(dog);
+// myDog.name = "Ares"; // inherited properties can be overwritten
+// myDog.breed = "shepherd"; // breed is a property of myDog
+// myDog.printInfo(); // My name is Ares
+
+// console.log("🚀 ~ dog.breed:", dog.breed) // => undefined
+
+// prototype inheritance
+
+// the old way
+// function Foo(name) {
+//   this.me = name;
+// }
+// Foo.prototype.identify = function () {
+//   return "I am " + this.me;
+// };
+
+// function Bar(name) {
+//   Foo.call(this, name);
+// }
+// Bar.prototype = Object.create(Foo.prototype);
+
+// Bar.prototype.speak = function () {
+//   console.log("Hello, " + this.identify() + ".");
+// };
+
+// let obj1 = new Bar("a");
+// let obj2 = new Bar("b");
+// obj1.speak();
+// obj2.speak();
+
+// class Person {
+//   constructor(name, age) {
+//     this.name = name;
+//     this.age = age;
+//   }
+//   sayHi() {
+//     return `hello, I'm ${this.name} I'm ${this.age}  years old`;
+//   }
+// }
+
+// // const person = new Person("Jeraldo", 12);
+// // person.sayHi();
+
+// class Student extends Person {
+//   constructor(name, age, grades) {
+//     super(name, age);
+//     this.grades = grades;
+//   }
+
+//   tellGrades() {
+//     console.log(this.sayHi(), "my grades are ", this.grades);
+//   }
+// }
+
+// const pepi = new Student("pepi", 19, 2.49);
+
+// pepi.tellGrades();
